@@ -16,13 +16,18 @@ public class TheArrayProblem {
         products.add(floorPanel);
         products.add(window);
 
-        Iterator<Product> iterator = products.iterator();
-        while (iterator.hasNext()) {
-            Product product = iterator.next();
-            System.out.println("Product is: " + product);
-            if (product.getWeight() > 15) iterator.remove();
-        }
+//        System.out.println(products.size());
+//        System.out.println(products.isEmpty());
+//        System.out.println(products.contains(window));
+//        System.out.println(products.remove(window));
+//        System.out.println(products.contains(window));
+
+        Collection<Product> toRemove = new ArrayList<>();
+        toRemove.add(door);
+        toRemove.add(window);
+        products.removeAll(toRemove);
         System.out.println(products);
+
     }
 
     private static Product[] add(Product product, Product[] array){
