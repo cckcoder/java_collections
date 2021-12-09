@@ -1,6 +1,8 @@
 package com.pluralsight.collections;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 
 public class TheArrayProblem {
     public static void main(String[] args) {
@@ -8,13 +10,14 @@ public class TheArrayProblem {
         Product floorPanel = new Product("Floor Panel", 25);
         Product window = new Product("Glass Window", 10);
 
-        // Create
-        Product[] products = { door, floorPanel };
-        System.out.println(Arrays.toString(products));
+        Collection<Product> products = new ArrayList<>();
+        products.add(door);
+        products.add(floorPanel);
+        products.add(window);
 
-        // Add
-        products = add(window, products);
-        System.out.println(Arrays.toString(products));
+        for(Product p : products) {
+            if (p.getWeight() > 20) System.out.println(p.getName());
+        }
     }
 
     private static Product[] add(Product product, Product[] array){
