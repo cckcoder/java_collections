@@ -3,6 +3,7 @@ package com.pluralsight.collections;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Iterator;
 
 public class TheArrayProblem {
     public static void main(String[] args) {
@@ -15,9 +16,13 @@ public class TheArrayProblem {
         products.add(floorPanel);
         products.add(window);
 
-        for(Product p : products) {
-            if (p.getWeight() > 20) System.out.println(p.getName());
+        Iterator<Product> iterator = products.iterator();
+        while (iterator.hasNext()) {
+            Product product = iterator.next();
+            System.out.println("Product is: " + product);
+            if (product.getWeight() > 15) iterator.remove();
         }
+        System.out.println(products);
     }
 
     private static Product[] add(Product product, Product[] array){
